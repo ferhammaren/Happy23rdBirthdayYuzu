@@ -2,30 +2,66 @@
 var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var labelIndex = 0;
 
+var marker;
+var infoWindow;
+var messageWindow;
+
 function initMap() {
     var satelliteMap;
+    var iceRinkSendai= { lat: 38.317238, lng: 140.892181 }
     satelliteMap = new google.maps.Map(document.getElementById('satelliteMap'), {
-        center: { lat: 38.317238, lng: 140.892181 },
+        center:iceRinkSendai,
         zoom: 17,
         mapTypeId: 'hybrid'
     });
 
-    google.maps.event.addListener(satelliteMap, 'click', function (event) {
-        addMarker(event.latLng, satelliteMap);
+    infoWindow = new google.maps.InfoWindow({
+        content: document.getElementById('satelliteInfo')
     });
+    // messageWindow=new google.maps.infoWindow({
+    //     content:document.getElementById('message')
+    // });
+
+    google.maps.event.addListener(satelliteMap, 'click', function (event) {
+        // addMarker(event.latLng, satelliteMap);
+        var image = {
+            url: 'images/POOH.png',
+            size: new google.maps.Size(68, 78),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(34, 39)
+        };
+        var shape = {
+                coords: [35, 2, 67, 28, 28, 76, 7, 31, 31, 35],
+                type: 'poly'
+            };
+        var marker = new google.maps.Marker({
+            position: event.latLng,
+            map: satelliteMap,
+            icon: image,
+            shape: shape
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+            infoWindow.open(satelliteMap, marker);
+        });
+
+    });
+    // google.maps.event.addListener(satelliteMap, 'click', function (event) {
+    //     addMarker(event.latLng, satelliteMap);
+    // });
 }
 
 function addMarker(location, map) {
-    var image = {
-        url: 'images/POOH.png',
-        size: new google.maps.Size(68, 78),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(34, 39)
-    };
-    var shape = {
-        coords: [35, 2, 67, 28, 28, 76, 7, 31, 31, 35],
-        type: 'poly'
-    };
+    // var image = {
+    //     url: 'images/POOH.png',
+    //     size: new google.maps.Size(68, 78),
+    //     origin: new google.maps.Point(0, 0),
+    //     anchor: new google.maps.Point(34, 39)
+    // };
+    // var shape = {
+    //     coords: [35, 2, 67, 28, 28, 76, 7, 31, 31, 35],
+    //     type: 'poly'
+    // };
     var marker = new google.maps.Marker({
         position: location,
         map: map,
@@ -34,3 +70,135 @@ function addMarker(location, map) {
     });
 }
 
+function changeMarkerType(name) {
+    switch (name) {
+        case "pooh":
+            var image = {
+                url: 'images/POOH.png',
+                size: new google.maps.Size(68, 78),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(8, 69)
+            };
+            var shape = {
+                coords: [35, 2, 67, 28, 28, 76, 7, 31, 31, 35],
+                type: 'poly'
+            };
+            break;
+        case "sadPooh":
+            var image = {
+                url: 'images/sadPooh.png',
+                size: new google.maps.Size(68, 78),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(8, 69)
+            };
+            var shape = {
+                coords: [35, 2, 67, 28, 28, 76, 7, 31, 31, 35],
+                type: 'poly'
+            };
+            break;
+        case "angryPooh":
+            var image = {
+                url: 'images/angryPooh.png',
+                size: new google.maps.Size(68, 78),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(8, 69)
+            };
+            var shape = {
+                coords: [35, 2, 67, 28, 28, 76, 7, 31, 31, 35],
+                type: 'poly'
+            };
+            break;
+        case "pBow":
+            var image = {
+                url: 'images/pBow.png',
+                size: new google.maps.Size(40, 30),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(7, 29)
+            };
+            var shape = {
+                coords: [1, 14, 30, 1, 39, 15, 8, 28, 1, 14],
+                type: 'poly'
+            };
+            break;
+        case "satellite":
+            var image = {
+                url: 'images/satellite.png',
+                size: new google.maps.Size(60, 66),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(15, 62)
+            };
+            var shape = {
+                coords: [44, 5, 58, 51, 14, 63, 6, 13, 1, 44, 5],
+                type: 'poly'
+            };
+            break;
+
+    }
+}
+
+
+function getMarkerType(name) {
+    switch (name) {
+        case "pooh":
+            var image = {
+                url: 'images/POOH.png',
+                size: new google.maps.Size(68, 78),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(8, 69)
+            };
+            var shape = {
+                coords: [35, 2, 67, 28, 28, 76, 7, 31, 31, 35],
+                type: 'poly'
+            };
+            break;
+        case "sadPooh":
+            var image = {
+                url: 'images/sadPooh.png',
+                size: new google.maps.Size(68, 78),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(8, 69)
+            };
+            var shape = {
+                coords: [35, 2, 67, 28, 28, 76, 7, 31, 31, 35],
+                type: 'poly'
+            };
+            break;
+        case "angryPooh":
+            var image = {
+                url: 'images/angryPooh.png',
+                size: new google.maps.Size(68, 78),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(8, 69)
+            };
+            var shape = {
+                coords: [35, 2, 67, 28, 28, 76, 7, 31, 31, 35],
+                type: 'poly'
+            };
+            break;
+        case "pBow":
+            var image = {
+                url: 'images/pBow.png',
+                size: new google.maps.Size(40, 30),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(7, 29)
+            };
+            var shape = {
+                coords: [1, 14, 30, 1, 39, 15, 8, 28, 1, 14],
+                type: 'poly'
+            };
+            break;
+        case "satellite":
+            var image = {
+                url: 'images/satellite.png',
+                size: new google.maps.Size(60, 66),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(15, 62)
+            };
+            var shape = {
+                coords: [44, 5, 58, 51, 14, 63, 6, 13, 1, 44, 5],
+                type: 'poly'
+            };
+            break;
+
+    }
+}
