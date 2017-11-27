@@ -8,4 +8,7 @@ html,body{
     padding:0;
 }
 
-
+#infoMessage{
+    width:25%;
+    
+}
