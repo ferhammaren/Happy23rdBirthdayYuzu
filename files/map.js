@@ -9,7 +9,7 @@ function initMap() {
         zoom: 17,
         mapTypeId: 'hybrid'
     });
-    
+
     google.maps.event.addListener(satelliteMap, 'click', function (event) {
         addMarker(event.latLng, satelliteMap);
     });
@@ -23,13 +23,13 @@ function addMarker(location, map) {
         anchor: new google.maps.Point(34, 39)
     };
     var shape = {
-        coords: [35, 2, 67, 28, 28, 76,7, 31, 31, 35],
+        coords: [35, 2, 67, 28, 28, 76, 7, 31, 31, 35],
         type: 'poly'
     };
     var marker = new google.maps.Marker({
-        position: location, 
-        map: map, 
-        icon: image, 
+        position: location,
+        map: map,
+        icon: image,
         shape: shape
     });
 }
