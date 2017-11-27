@@ -8,17 +8,7 @@
 </head>
 <body>
     <div id="satelliteMap"></div>
-        <script>
-        var satelliteMap;
-        function initMap(){
-            satelliteMap=new google.maps.Map(document.getElementById('satelliteMap'),{
-                center:{lat:38.317238,lng:140.892181},
-                zoom:17,
-                mapTypeId:'hybrid'
-            });
-        
-        }
-    </script>
+        <script type="text/javascript" src="map.js">  </script>
         <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJIyEx2tVqIcm_qxWSehWjwQX7fVZlgww&callback=initMap">
     </script>
