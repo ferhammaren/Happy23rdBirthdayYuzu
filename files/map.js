@@ -54,18 +54,18 @@ function saveData(){
     var address = escape(document.getElementById('message').value);
     var type = document.getElementById('markerType').value;
     var latlng = marker.getPosition();
-    var url = 'featheredstrings.000webhostapp.com/no/phpsqlinfo_addrow.php?name=' + name + '&address=' + address +
+    var url = 'http://localhost/Happy23rdBirthdayYuzu/files/phpsqlinfo_addrow.php?name=' + name + '&address=' + address +
               '&type=' + type + '&lat=' + latlng.lat() + '&lng=' + latlng.lng();
 
-    // downloadUrl(url, function(data, responseCode) {
+    downloadUrl(url, function(data, responseCode) {
 
-    //   if (responseCode == 200 && data.length <= 1) {
-        infowindow.close();
-        messagewindow.open(map, marker);
-    //   }else{
-    //       alert("nope "+responseCode);
-    //   }
-    // });
+      if (responseCode == 200 && data.length <= 1) {
+        infoWindow.close();
+     //   messagewindow.open(map, marker);
+      }else{
+          alert("nope "+data);
+      }
+    });
 }
     
     function downloadUrl(url, callback) {
@@ -241,4 +241,8 @@ function getMarkerType(name) {
 //         icon: image,
 //         shape: shape
 //     });
+<<<<<<< HEAD
 // }
+=======
+// }
+>>>>>>> af709efb034009e7883cfe01fbabb98d11309a11
