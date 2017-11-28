@@ -1,7 +1,5 @@
-
 var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var labelIndex = 0;
-
 var marker;
 var infoWindow;
 var messageWindow;
@@ -34,7 +32,7 @@ function initMap() {
                 coords: [35, 2, 67, 28, 28, 76, 7, 31, 31, 35],
                 type: 'poly'
             };
-        var marker = new google.maps.Marker({
+         marker = new google.maps.Marker({
             position: event.latLng,
             map: satelliteMap,
             icon: image,
@@ -51,24 +49,47 @@ function initMap() {
     // });
 }
 
-function addMarker(location, map) {
-    // var image = {
-    //     url: 'images/POOH.png',
-    //     size: new google.maps.Size(68, 78),
-    //     origin: new google.maps.Point(0, 0),
-    //     anchor: new google.maps.Point(34, 39)
-    // };
-    // var shape = {
-    //     coords: [35, 2, 67, 28, 28, 76, 7, 31, 31, 35],
-    //     type: 'poly'
-    // };
-    var marker = new google.maps.Marker({
-        position: location,
-        map: map,
-        icon: image,
-        shape: shape
+function saveData(){
+    var name = escape(document.getElementById('satelliteName').value);
+    var address = escape(document.getElementById('message').value);
+    var type = document.getElementById('markerType').value;
+    var latlng = marker.getPosition();
+    var url = 'http://localhost/Happy23rdBirthdayYuzu/files/phpsqlinfo_addrow.php?name=' + name + '&address=' + address +
+              '&type=' + type + '&lat=' + latlng.lat() + '&lng=' + latlng.lng();
+
+    downloadUrl(url, function(data, responseCode) {
+
+      if (responseCode == 200 && data.length <= 1) {
+        infoWindow.close();
+     //   messagewindow.open(map, marker);
+      }else{
+          alert("nope "+data);
+      }
     });
 }
+    
+    function downloadUrl(url, callback) {
+        var request = window.ActiveXObject ?
+            new ActiveXObject('Microsoft.XMLHTTP') :
+            new XMLHttpRequest;
+
+        request.onreadystatechange = function() {
+          if (request.readyState == 4) {
+            request.onreadystatechange = doNothing;
+            callback(request.responseText, request.status);
+          }
+        };
+
+        request.open('GET', url, true);
+        request.send(null);
+      }
+
+      function doNothing () {
+      }
+
+
+
+
 
 function changeMarkerType(name) {
     switch (name) {
@@ -136,7 +157,6 @@ function changeMarkerType(name) {
     }
 }
 
-
 function getMarkerType(name) {
     switch (name) {
         case "pooh":
@@ -202,3 +222,23 @@ function getMarkerType(name) {
 
     }
 }
+
+
+// function addMarker(location, map) {
+//     // var image = {
+//     //     url: 'images/POOH.png',
+//     //     size: new google.maps.Size(68, 78),
+//     //     origin: new google.maps.Point(0, 0),
+//     //     anchor: new google.maps.Point(34, 39)
+//     // };
+//     // var shape = {
+//     //     coords: [35, 2, 67, 28, 28, 76, 7, 31, 31, 35],
+//     //     type: 'poly'
+//     // };
+//     var marker = new google.maps.Marker({
+//         position: location,
+//         map: map,
+//         icon: image,
+//         shape: shape
+//     });
+// }
