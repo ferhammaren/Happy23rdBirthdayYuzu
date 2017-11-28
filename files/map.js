@@ -57,15 +57,15 @@ function saveData(){
     var url = 'featheredstrings.000webhostapp.com/no/phpsqlinfo_addrow.php?name=' + name + '&address=' + address +
               '&type=' + type + '&lat=' + latlng.lat() + '&lng=' + latlng.lng();
 
-    // downloadUrl(url, function(data, responseCode) {
+    downloadUrl(url, function(data, responseCode) {
 
-    //   if (responseCode == 200 && data.length <= 1) {
+      if (responseCode == 200 && data.length <= 1) {
         infowindow.close();
         messagewindow.open(map, marker);
-    //   }else{
-    //       alert("nope "+responseCode);
-    //   }
-    // });
+      }else{
+          alert("nope "+responseCode);
+      }
+    });
 }
     
     function downloadUrl(url, callback) {
