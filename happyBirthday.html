@@ -2,19 +2,18 @@
 <html>
 
 <head>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="files/style.css">
     <title>Happy Birthday Yuzu, from Planet Hanyu! ||羽生選手、お誕生日おめでとうございます！</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
 </head>
 <header>ayy birthdae</header>
 
 <body>
     <div id="satelliteMap"></div>
-
     <div id="satelliteInfo">
         <table>
-        <tr><td>Name:</td><td><input type="text" name="satelliteName" maxlength="60"></td></tr>
+        <tr><td>Name:</td><td><input type="text" id="satelliteName" maxlength="60"></td></tr>
         <tr><td>Message:</td><td><textarea id="message" rows="10" cols="50" maxlength="250"></textarea></td></tr>
         <tr><td>Marker:</td><td><select id='markerType'>+
                          <option value="Pooh" SELECTED>Pooh</option>
@@ -29,8 +28,7 @@
         <script type="text/javascript" src="files/map.js">  </script>
         <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJIyEx2tVqIcm_qxWSehWjwQX7fVZlgww&callback=initMap">
-    </script>
-   
+    </script> 
 </body>
 <footer>
 </footer>
