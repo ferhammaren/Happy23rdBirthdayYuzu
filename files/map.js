@@ -16,9 +16,9 @@ function initMap() {
     infoWindow = new google.maps.InfoWindow({
         content: document.getElementById('satelliteInfo')
     });
-    // messageWindow=new google.maps.infoWindow({
-    //     content:document.getElementById('message')
-    // });
+    messageWindow=new google.maps.InfoWindow({
+        content:document.getElementById('messageComplete')
+    });
 
     google.maps.event.addListener(satelliteMap, 'click', function (event) {
         // addMarker(event.latLng, satelliteMap);
@@ -61,9 +61,9 @@ function saveData(){
 
       if (responseCode == 200 && data.length <= 1) {
         infoWindow.close();
-     //   messagewindow.open(map, marker);
+       messageWindow.open(satelliteMap, marker);
       }else{
-          alert("nope "+data);
+          alert(data);
       }
     });
 }
