@@ -165,9 +165,7 @@ function saveData() {
         if (responseCode == 200 && data.length <= 1) {
             infoWindow.close();
             messageWindow.open(satelliteMap, marker);
-        } else {
-            alert(data);
-        }
+        } 
     });
 }
     
