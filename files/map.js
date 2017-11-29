@@ -51,9 +51,10 @@ function initMap() {
     //load the markers ayy
 
     downloadUrl('http://feathered-strings.me/Happy23rdBirthdayYuzu/files/getMarkers.php', function (data) {
-        var xml1 = data.responseXML;
+        alert(data);    
+    var xml1 = data.responseXML;
         var markers = xml1.documentElement.getElementsByTagName('marker');
-        alert(data);
+        
         Array.prototype.forEach.call(markers, function (markerElem) {
             var id = markerElem.getAttribute('id');
             var name = markerElem.getAttribute('name');
