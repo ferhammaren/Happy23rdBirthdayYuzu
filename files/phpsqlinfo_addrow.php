@@ -1,7 +1,7 @@
 <?php
 // header('Access-Control-Allow-Origin: *');
 // header('Content-type: application/javascript');
-require("phpsqlinfo_dbinfo.php");
+require("files/phpsqlinfo_dbinfo.php");
 // Gets data from URL parameters.
 $name = $_GET['name'];
 $message = $_GET['address'];
