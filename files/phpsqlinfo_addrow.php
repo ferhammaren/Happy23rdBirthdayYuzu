@@ -1,6 +1,6 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-header('Content-type: application/javascript');
+// header('Access-Control-Allow-Origin: *');
+// header('Content-type: application/javascript');
 require("phpsqlinfo_dbinfo.php");
 // Gets data from URL parameters.
 $name = $_GET['name'];
@@ -22,5 +22,5 @@ $result ->execute();
 if (!$result) {
   die('Invalid query: ' . mysqli_error($connection));
 }
-header("Access-Control-Allow-Origin: *");
+//header("Access-Control-Allow-Origin: *");
 ?>
