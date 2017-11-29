@@ -1,5 +1,6 @@
 <?php
-$username="planetHanyu";
-$password="Onmyouji1207";
-$database="planetHanyu-id3776208_yuzubirthdaymap";
+$servername="server227.web-hosting.com";
+$username="featrvbo_appUser";
+$password="Swanyu1207";
+$database="featrvbo_satelliteMap";
 ?>
