@@ -157,7 +157,7 @@ function saveData() {
     var address = escape(document.getElementById('message').value);
     var type = document.getElementById('markerType').value;
     var latlng = marker.getPosition();
-    var url = 'files/phpsqlinfo_addrow.php?name=' + name + '&address=' + address +
+    var url = 'feathered-strings.me/Happy23rdBirthdayYuzu/files/phpsqlinfo_addrow.php?name=' + name + '&address=' + address +
         '&type=' + type + '&lat=' + latlng.lat() + '&lng=' + latlng.lng();
 
     downloadUrl(url, function (data, responseCode) {
