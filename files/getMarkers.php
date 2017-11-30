@@ -12,29 +12,30 @@ return $xmlStr;
 }
 
 
-$connection=new mysqli ("127.0.0.1", $username, $password,$database);
+$connection=new mysqli ($servername, $username, $password,$database);
 if (!$connection) {
   die('Not connected : ' . mysql_error());
 }
 
 
-$query = "CALL selectMarkers()";
+$query = "SELECT * FROM `satelliteMarkers` ";
 $result=$connection->prepare($query);
 $result->execute();
 if (!$result) {
   die('Invalid query: ' . mysql_error());
 }else{
-//$result->store_result();
-$result=$result->get_result();
+$result->store_result();
+//$result=$result->get_result();
+$result->bind_result($id,$name,$message,$lat,$lng,$type);
 header("Content-type: text/xml");
 echo '<markers>';
-while ($row = mysqli_fetch_assoc($result)){
+while ($result->fetch()){
   echo '<marker id="' . $id . '" ';
-  echo 'name="' . parseToXML($row['name']) . '" ';
-  echo 'message="' . parseToXML($row['message']) . '" ';
-  echo 'lat="' . $row['lat'] . '" ';
-  echo 'lng="' . $row['lng'] . '" ';
-  echo 'type="' . $row['type'] . '" ';
+  echo 'name="' . parseToXML($name) . '" ';
+  echo 'message="' . parseToXML($message) . '" ';
+  echo 'lat="' . $lat . '" ';
+  echo 'lng="' . $lng . '" ';
+  echo 'type="' . $type . '" ';
   echo '/>';
 }
 
