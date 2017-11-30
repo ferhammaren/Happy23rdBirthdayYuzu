@@ -3,33 +3,78 @@
 
 <head>
     <meta name="viewport" content="initial-scale=1.0">
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="files/style.css">
     <title>Happy Birthday Yuzu, from Planet Hanyu! ||羽生選手、お誕生日おめでとうございます！</title>
 </head>
-<header><img src="images/HAPPY BIRTHDAY.png " height="150px" width="600px"></header>
+<!--<header><img src="images/HAPPY BIRTHDAY.png " height="150px" width="600px"></header>-->
 
 <body>
+        <!-- <script>
+                function hideInstructions(){
+                    var x=document.getElementById("exp");        
+                        x.style.display="none";
+                    
+                }
+                </script>
+        <div class="explanation" id="exp">
+            <div class="text">
+                <h1>Happy Birthday, Yuzu!</h1>
+                <br>
+                <p>From Planet Hanyu, this map was created to show 
+                    the diversity of Yuzu fans
+                    and to wish him a happy birthday.
+                    <br>Everyone is welcome to leave their message here.
+                </p>
+                    <br>
+                    <h2>Instructions</h2><br>
+                     Click/tap your location to put your marker.
+                    <br> Click the marker to bring up the window where you
+                    can leave your message.
+                    <br>Don't forget to choose your marker!
+                    <br> Click the save button.<br>
+                    <button id="close" onclick="hideInstructions()">Got it!</button>
+            </div>
+       </div> -->
+
     <div id="satelliteMap"></div>
     <div id="satelliteInfo">
         <table>
-        <tr><td>Name:</td><td><input type="text" id="satelliteName" maxlength="60"></td></tr>
-        <tr><td>Message:</td><td><textarea id="message" rows="10" cols="50" maxlength="250"></textarea></td></tr>
-        <tr><td>Marker:</td><td><select id='markerType'>+
-                         <option value="Pooh" SELECTED>Pooh</option>
-                         <option value="sadPooh">Sad Pooh</option>
-                         <option value="angryPooh">Angry Pooh</option>
-                         <option value="pbow">Pink bow</option>
-                         <option value="satellite">Satellite</option>
-        </select></td></tr>
-        <tr><td><input type="submit" value="Add your message" onClick='saveData()'/></td></tr>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <input type="text" id="satelliteName" maxlength="60">
+                </td>
+            </tr>
+            <tr>
+                <td>Message:</td>
+                <td>
+                    <textarea id="message" rows="10" cols="50" maxlength="250"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Marker:</td>
+                <td>
+                    <select id='markerType'>+
+                        <option value="Pooh" SELECTED>Pooh</option>
+                        <option value="sadPooh">Sad Pooh</option>
+                        <option value="angryPooh">Angry Pooh</option>
+                        <option value="pbow">Pink bow</option>
+                        <option value="satellite">Satellite</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Add your message" onClick='saveData()' />
+                </td>
+            </tr>
         </table>
     </div>
     <div id="messageComplete">Message saved</div>
-        <script type="text/javascript" src="files/map.js">  </script>
-        <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJIyEx2tVqIcm_qxWSehWjwQX7fVZlgww&callback=initMap">
-    </script> 
+    <script type="text/javascript" src="files/map.js">  </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJIyEx2tVqIcm_qxWSehWjwQX7fVZlgww&callback=initMap">
+    </script>
 </body>
 <footer>
 </footer>

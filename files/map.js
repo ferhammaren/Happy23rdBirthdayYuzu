@@ -1,5 +1,3 @@
-var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-var labelIndex = 0;
 var marker;
 var infoWindow;
 var messageWindow;
@@ -50,7 +48,7 @@ function initMap() {
 
     //load the markers ayy
 
-    downloadUrl('http://localhost/Happy23rdBirthdayYuzu/files/getMarkers.php', function (data) {
+    downloadUrl1('getMarkers.php', function (data) {
         var xml1 = data.responseXML;
         var markers = xml1.documentElement.getElementsByTagName('marker');
         Array.prototype.forEach.call(markers, function (markerElem) {
@@ -76,7 +74,7 @@ function initMap() {
 
             //get marker image
             switch (type) {
-                case "pooh":
+                case "Pooh":
                     image = {
                         url: 'images/POOH.png',
                         size: new google.maps.Size(68, 78),
@@ -157,7 +155,7 @@ function saveData() {
     var address = escape(document.getElementById('message').value);
     var type = document.getElementById('markerType').value;
     var latlng = marker.getPosition();
-    var url = 'http://localhost/Happy23rdBirthdayYuzu/files/phpsqlinfo_addrow.php?name=' + name + '&address=' + address +
+    var url = 'phpsqlinfo_addrow.php?name=' + name + '&address=' + address +
         '&type=' + type + '&lat=' + latlng.lat() + '&lng=' + latlng.lng();
 
     downloadUrl(url, function (data, responseCode) {
@@ -188,6 +186,26 @@ function downloadUrl(url, callback) {
 
 function doNothing() {
 }
+
+
+
+function downloadUrl1(url, callback) {
+    var request = window.ActiveXObject ?
+        new ActiveXObject('Microsoft.XMLHTTP') :
+        new XMLHttpRequest;
+
+    request.onreadystatechange = function() {
+      if (request.readyState == 4) {
+        request.onreadystatechange = doNothing1;
+        callback(request, request.status);
+      }
+    };
+
+    request.open('GET', url, true);
+    request.send(null);
+  }
+
+  function doNothing1() {}
 
 
 
@@ -343,8 +361,4 @@ function getMarkerType(name) {
 //         icon: image,
 //         shape: shape
 //     });
-<<<<<<< HEAD
 // }
-=======
-// }
->>>>>>> af709efb034009e7883cfe01fbabb98d11309a11

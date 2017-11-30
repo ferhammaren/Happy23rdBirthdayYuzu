@@ -12,7 +12,7 @@ return $xmlStr;
 }
 
 
-$connection=new mysqli ("127.0.0.1", $username, $password,$database);
+$connection=new mysqli ($servername, $username, $password,$database);
 if (!$connection) {
   die('Not connected : ' . mysql_error());
 }
@@ -28,7 +28,7 @@ if (!$result) {
 $result=$result->get_result();
 header("Content-type: text/xml");
 echo '<markers>';
-while ($row = mysqli_fetch_assoc($result)){
+while ($row = $result->mysqli_fetch_assoc()){
   echo '<marker id="' . $id . '" ';
   echo 'name="' . parseToXML($row['name']) . '" ';
   echo 'message="' . parseToXML($row['message']) . '" ';
