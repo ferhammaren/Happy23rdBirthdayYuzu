@@ -29,7 +29,11 @@ $result->store_result();
 $result->bind_result($id,$name,$message,$lat,$lng,$type);
 header("Content-type: text/xml");
 echo '<markers>';
+<<<<<<< HEAD
 while ($result->fetch()){
+=======
+while ($row = $result->mysqli_fetch_assoc()){
+>>>>>>> a7a32b62a5e532adb016ce32ce4f1055a1108e7b
   echo '<marker id="' . $id . '" ';
   echo 'name="' . parseToXML($name) . '" ';
   echo 'message="' . parseToXML($message) . '" ';

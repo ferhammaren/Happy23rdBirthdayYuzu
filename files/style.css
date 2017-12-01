@@ -1,4 +1,56 @@
 
+.clearfix{
+    overflow:auto;
+}
+.container{
+    display:flex;
+    flex-wrap: wrap;
+}
+/* 
+.explanation{
+    position:absolute;
+    top:5%;
+    background-color: rgba(0, 146, 186, 0.76);
+    overflow: hidden;
+    width:89vw;
+    left:15%;
+    padding-left: 2%;
+    height: 70vh;
+    z-index: 1;
+}
+
+.text {
+    white-space: nowrap; 
+    color: white;
+    font-size: 3.78vw;
+    font-family: sans-serif;
+        text-align: center;
+        top: 5%;
+  } */
+
+  /*for desktop*/
+/*@media only screen and (min-width:800px){*/
+    .explanation{
+        position: absolute;
+        right:15%;
+        top:5%;
+        background-color: rgba(0, 146, 186, 0.76);
+        overflow: hidden;
+        width:40%;
+        height: 60%;
+    z-index: 1;
+    }
+    
+      .text {
+        color: white;
+        font-size: 20px;
+        font-family: sans-serif;
+        text-align: justify;
+        top: 5%;
+      }
+/*}*/
+
+
 #satelliteMap{
     height:100%;
     /* float:left;
